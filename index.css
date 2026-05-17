@@ -1,4 +1,15 @@
 body {
+  <div id="highscore"
+style="
+position:absolute;
+top:10px;
+left:10px;
+color:white;
+font-size:30px;
+font-family:Arial;
+z-index:999;
+">
+High Score: 0
   background-color: #0099cc;
   color: #fff;
 
