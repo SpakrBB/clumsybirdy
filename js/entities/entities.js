@@ -108,9 +108,34 @@ game.BirdEntity = me.Entity.extend({
         this.endTween
             .to({y: currentPos}, 1000)
             .to({y: finalPos}, 1000)
-            .onComplete(function() {
-                me.state.change(me.state.GAME_OVER);
-            });
+            .onComplete(function() { saveScore(game.data.score);
+
+    let text = "Good Job! - Eijwa";
+
+    if(game.data.score > highScore){
+        text = "NEW HIGH SCORE! - Eijwa";
+    }
+
+    document.body.innerHTML += `
+    <div style="
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:black;
+    color:white;
+    padding:20px 40px;
+    font-size:40px;
+    font-family:Arial;
+    border-radius:15px;
+    z-index:99999;
+    ">
+    ${text}
+    </div>
+    `;
+
+    me.state.change(me.state.GAME_OVER);
+});
         this.endTween.start();
     }
 
