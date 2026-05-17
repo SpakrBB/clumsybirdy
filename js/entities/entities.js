@@ -108,7 +108,8 @@ game.BirdEntity = me.Entity.extend({
         this.endTween
             .to({y: currentPos}, 1000)
             .to({y: finalPos}, 1000)
-            .onComplete(function() { saveScore(game.data.score);
+            .onComplete(function() { 
+                saveScore(game.data.score);
 
     let text = "Good Job! - Eijwa";
 
@@ -133,7 +134,7 @@ game.BirdEntity = me.Entity.extend({
     ${text}
     </div>
     `;
-
+ // wait before switching screen
     me.state.change(me.state.GAME_OVER);
 });
         this.endTween.start();
