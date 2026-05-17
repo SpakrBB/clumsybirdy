@@ -1,3 +1,11 @@
+let highScore = localStorage.getItem("highScore") || 0;
+
+function saveScore(score) {
+    if (score > highScore) {
+        highScore = score;
+        localStorage.setItem("highScore", highScore);
+    }
+}
 var game = {
     data: {
         score : 0,
@@ -16,6 +24,15 @@ var game = {
         {name: "ground", type:"image", src: "data/img/ground.png"},
         {name: "gameover", type:"image", src: "data/img/gameover.png"},
         {name: "gameoverbg", type:"image", src: "data/img/gameoverbg.png"},
+        saveScore(score);
+
+let text = "Good Job! - Eijwa";
+
+if(score > highScore){
+    text = "NEW HIGH SCORE! - Eijwa";
+}
+
+alert(text);
         {name: "hit", type:"image", src: "data/img/hit.png"},
         {name: "getready", type:"image", src: "data/img/getready.png"},
         {name: "new", type:"image", src: "data/img/new.png"},
